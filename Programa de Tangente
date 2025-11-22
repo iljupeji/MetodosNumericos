@@ -1,0 +1,52 @@
+//#include <windows.h>
+#include <conio.h>
+#include <math.h>
+#include <stdio.h>
+
+float xi, xif, fdi, dfdi,e,er;
+void raiz();
+int main(){
+	printf("\n  PROGRAMA DE LA TANGENTE  \n");
+	printf("\n  PARA LA FUNCION f(x)=x^3+2x^2+10x-20  \n");
+	printf("\n Inserte exactitud: "); scanf("%f",&e);
+	printf("%f",e);
+	int a=1;
+	do{
+		printf("\n Inserte el valor de xi : \n"); scanf("%f",&xi);
+		int i;
+		for(i=1; i<=10; i++)
+		{
+			//printf("\n %d \n",i);
+			raiz();
+			if(er<=e)
+			{
+				printf("\n Raiz : %f , \n Error: %f , \n Exactitud: %f \n",xif,er,e);
+				break;				
+			}
+			else
+			{
+				printf("\n Cambiar de datos \n");
+			}
+		}
+		a=a++;//a=a+1;
+		//printf("\n Numero de iteraciones: %d\n",i);
+	}
+	while(er>=e);
+	printf("\nIlse Judith Perez Jimenez \n2RV3");	
+	printf("\n Numero de iteraciones: %d\n",a);
+	printf("\n Raiz : %f , \n Error: %f , \n Exactitud: %f \n",xif,er,e);
+}
+
+void raiz()
+{
+	printf("\n xi:(%f)\n",xi);		
+	fdi=pow(xif,3)+2*pow(xif,2)+10*xif-20;	
+	printf("\n Funcion de xi:(%f)\n",fdi);
+	dfdi=3*pow(xif,2)+4*xif+10;
+	printf("\n f'xi:(%f)\n",dfdi);
+	xif=xi-(fdi/dfdi);
+	printf("\n\n xi: %f , xi+1: %f \n",xi, xif);
+	er=fabs(xif-xi);
+	printf("Error: %f", er);
+	xi=xif;
+}
