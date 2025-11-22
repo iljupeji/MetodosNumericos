@@ -1,2 +1,2 @@
 # MetodosNumericos
-Códigos escritos en MATLAB
+Códigos escritos en MATLAB de métodos numéricos.
